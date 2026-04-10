@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPet Insurance Services | Pet Insurance in California</title>
+    <meta name="description" content="Compare top pet insurance plans from Lemonade, ASPCA, and Spot Pet Insurance. iPet Insurance Services helps California pet owners find the best coverage for dogs and cats.">
+    <meta name="keywords" content="pet insurance California, dog insurance CA, cat insurance, Lemonade pet insurance, ASPCA pet insurance, Spot pet insurance, pet insurance agency">
+    <meta property="og:title" content="iPet Insurance Services">
+    <meta property="og:description" content="California's trusted independent pet insurance agency. Compare Lemonade, ASPCA, and Spot Pet Insurance.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-primary: #FF6B4A;
+            --color-primary-dark: #E85A39;
+            --color-secondary: #4ECDC4;
+            --color-navy: #1A2B4A;
+            --color-text: #3D4E6B;
+            --color-text-light: #6B7A99;
+            --color-bg: #FFFFFF;
+            --color-bg-soft: #F8F9FB;
+            --color-bg-warm: #FFF5F2;
+            --color-border: #E8ECF4;
+            --color-success: #27AE60;
+            --radius-card: 16px;
+            --radius-btn: 50px;
+            --shadow-card: 0 4px 24px rgba(26,43,74,0.08);
+            --shadow-card-hover: 0 8px 40px rgba(26,43,74,0.14);
+            --transition: all 0.25s ease;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--color-text); line-height: 1.6; background: var(--color-bg); }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: var(--color-navy); line-height: 1.2; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; }
+        .section-heading { font-size: 2.5rem; text-align: center; margin-bottom: 1rem; color: var(--color-navy); }
+        .section-subtitle { text-align: center; font-size: 1.125rem; color: var(--color-text-light); max-width: 700px; margin: 0 auto 3rem; }
+
+        /* ─── PAGE SYSTEM ─── */
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* ─── NAVBAR ─── */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000; transition: var(--transition);
+        }
+        .navbar.scrolled { box-shadow: 0 4px 20px rgba(26,43,74,0.1); }
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 20px; max-width: 1200px; margin: 0 auto;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 0.5rem;
+            text-decoration: none; color: var(--color-navy);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700; font-size: 1.25rem; cursor: pointer;
+        }
+        .logo svg { width: 32px; height: 32px; }
+        .nav-links { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        .nav-links a {
+            text-decoration: none; color: var(--color-text);
+            font-weight: 500; transition: var(--transition);
+            position: relative; cursor: pointer;
+        }
+        .nav-links a:hover { color: var(--color-primary); }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after, .nav-links a.active-nav::after { width: 100%; }
+        .nav-links a.active-nav { color: var(--color-primary); }
+        .mobile-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-navy); }
+
+        /* ─── BUTTONS ─── */
+        .btn {
+            display: inline-block; padding: 12px 28px;
+            border-radius: var(--radius-btn); font-weight: 600;
+            text-decoration: none; transition: var(--transition);
+            cursor: pointer; border: none;
+            font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem;
+        }
+        .btn-primary { background: var(--color-primary); color: white; }
+        .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,107,74,0.3); }
+        .btn-outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+        .btn-outline:hover { background: var(--color-primary); color: white; }
+
+        /* ─── IMAGE PLACEHOLDER ─── */
+        .img-placeholder {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf4 100%);
+            border-radius: var(--radius-card);
+            border: 2px dashed var(--color-border);
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 10px; padding: 24px; text-align: center;
+            color: var(--color-text-light);
+        }
+        .img-placeholder .ph-emoji { font-size: 3rem; opacity: 0.4; }
+        .img-placeholder .ph-title { font-weight: 700; font-size: 14px; color: var(--color-navy); }
+        .img-placeholder .ph-size { font-size: 12px; color: var(--color-text-light); }
+
+        /* ─── HERO ─── */
+        .hero {
+            padding-top: 140px; padding-bottom: 80px;
+            background: linear-gradient(180deg, var(--color-bg-warm) 0%, white 100%);
+            min-height: 80vh; display: flex; align-items: center; position: relative;
+        }
+        .hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-text h1 { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .hero-text .subheadline { font-size: 1.25rem; color: var(--color-text); margin-bottom: 2rem; max-width: 500px; }
+        .hero-buttons { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .trust-badges { display: flex; gap: 2rem; flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid var(--color-border); }
+        .trust-badge { display: flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+        .wave-divider { position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
+        .wave-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 80px; }
+
+        /* ─── STATS ─── */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0; }
+        .stat-card { background: white; padding: 2rem; border-radius: var(--radius-card); box-shadow: var(--shadow-card); text-align: center; transition: var(--transition); }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.5rem; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* ─── PROCESS ─── */
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 3rem 0; }
+        .process-step { text-align: center; padding: 2rem; background: white; border-radius: var(--radius-card); box-shadow: var(--shadow-card); transition: var(--transition); }
+        .process-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .step-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .step-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+        /* ─── COVERAGE CARDS (home) ─── */
+        .coverage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
+        .coverage-card { background: white; padding: 1.5rem; border-radius: var(--radius-card); box-shadow: var(--shadow-card); border-left: 4px solid var(--color-primary); transition: var(--transition); }
+        .coverage-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .coverage-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .coverage-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+        /* ─── CARRIER CARDS ─── */
+        .carrier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .carrier-card { background: white; border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; transition: var(--transition); border: 1px solid var(--color-border); display: flex; flex-direction: column; }
+        .carrier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .carrier-header { padding: 1.5rem; text-align: center; border-bottom: 1px solid var(--color-border); }
+        .carrier-logo { width: 140px; height: 64px; margin: 0 auto 1rem; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border); overflow: hidden; }
+        /* IMAGE PLACEHOLDER for carrier logos */
+        .carrier-logo .logo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--color-text-light); background: var(--color-bg-soft); }
+        .carrier-body { padding: 1.5rem; flex: 1; }
+        .carrier-highlights { list-style: none; margin: 1rem 0; }
+        .carrier-highlights li { padding: 0.3rem 0; color: var(--color-text); font-size: 0.95rem; }
+        .carrier-highlights li::before { content: "✓ "; color: var(--color-success); font-weight: bold; }
+        .carrier-footer { padding: 1.5rem; border-top: 1px solid var(--color-border); display: flex; gap: 1rem; justify-content: center; }
+
+        /* ─── COMPARISON TABLE ─── */
+        .table-container { overflow-x: auto; margin: 3rem 0; background: white; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th { background: var(--color-navy); color: white; padding: 1rem; text-align: left; font-weight: 600; font-family: 'Plus Jakarta Sans', sans-serif; }
+        td { padding: 1rem; border-bottom: 1px solid var(--color-border); }
+        tr:nth-child(even) { background: var(--color-bg-soft); }
+        .check { color: var(--color-success); font-weight: bold; }
+
+        /* ─── FORM ─── */
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin: 3rem 0; }
+        .form-container { background: white; padding: 2rem; border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--color-navy); }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: 1px solid var(--color-border); border-radius: 8px; font-size: 1rem; font-family: inherit; outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(255,107,74,0.1); }
+        .checkbox-group { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        .checkbox-item { display: flex; align-items: center; gap: 0.5rem; }
+        .checkbox-item input { width: auto; }
+
+        /* ─── FAQ ─── */
+        .faq-item { background: white; border-radius: var(--radius-card); margin-bottom: 1rem; box-shadow: var(--shadow-card); overflow: hidden; }
+        .faq-question { padding: 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--color-navy); transition: var(--transition); font-family: 'Plus Jakarta Sans', sans-serif; }
+        .faq-question:hover { background: var(--color-bg-soft); }
+        .faq-icon { font-size: 1.5rem; transition: transform 0.3s ease; flex-shrink: 0; }
+        .faq-item.active .faq-icon { transform: rotate(45deg); }
+        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; }
+        .faq-item.active .faq-answer { padding: 0 1.5rem 1.5rem; max-height: 300px; }
+
+        /* ─── CONTACT INFO BOX ─── */
+        .contact-info-box { background: white; border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 2.5rem; margin-top: 2.5rem; }
+        .contact-methods { display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+        .contact-method { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; text-align: center; }
+        .cm-icon { font-size: 2.5rem; }
+        .cm-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); }
+        .cm-value { font-size: 1.1rem; font-weight: 700; color: var(--color-navy); text-decoration: none; }
+        .cm-value:hover { color: var(--color-primary); }
+
+        /* ─── FOOTER ─── */
+        footer { background: var(--color-navy); color: white; padding: 4rem 0 2rem; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-logo { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; color: white; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.2rem; cursor: pointer; }
+        .footer-links h4 { color: white; margin-bottom: 1rem; font-size: 1rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.5rem; }
+        .footer-links a { color: rgba(255,255,255,0.75); text-decoration: none; transition: var(--transition); cursor: pointer; font-size: 0.95rem; }
+        .footer-links a:hover { color: white; }
+        .social-icons { display: flex; gap: 1rem; margin-top: 1rem; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; transition: var(--transition); font-size: 0.9rem; }
+        .social-icon:hover { background: var(--color-primary); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center; color: rgba(255,255,255,0.55); font-size: 0.875rem; }
+
+        /* ─── FLOATING BUTTON ─── */
+        .floating-quote {
+            position: fixed; bottom: 30px; right: 30px;
+            background: var(--color-primary); color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(255,107,74,0.4); z-index: 999;
+            opacity: 0; visibility: hidden; transition: var(--transition);
+            animation: pulse 2s infinite; cursor: pointer;
+        }
+        .floating-quote.visible { opacity: 1; visibility: visible; }
+        .floating-quote:hover { transform: scale(1.1); background: var(--color-primary-dark); }
+        @keyframes pulse {
+            0%   { box-shadow: 0 0 0 0 rgba(255,107,74,0.7); }
+            70%  { box-shadow: 0 0 0 15px rgba(255,107,74,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,107,74,0); }
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-text { animation: fadeInUp 1s ease; }
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+        /* ════════════════════════════════════════
+           COVERAGE PAGE (Page 2)
+        ════════════════════════════════════════ */
+        .cov-page-hero {
+            padding: 140px 0 60px;
+            background: linear-gradient(135deg, #FFF5F2 0%, #F8F9FB 100%);
+            text-align: center;
+        }
+        .cov-page-hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .cov-page-hero p { font-size: 1.15rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto 2rem; }
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: none; border: 2px solid var(--color-primary);
+            color: var(--color-primary); padding: 10px 22px;
+            border-radius: var(--radius-btn); font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer; transition: var(--transition); font-size: 0.95rem;
+        }
+        .back-btn:hover { background: var(--color-primary); color: white; }
+
+        .detailed-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .dc-card { background: white; border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; border: 1px solid var(--color-border); transition: var(--transition); }
+        .dc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+        .dc-card.wellness { border: 2px solid var(--color-secondary); }
+        .dc-head { padding: 1.25rem 1.5rem; background: linear-gradient(135deg, var(--color-bg-warm), #fff); border-bottom: 3px solid var(--color-primary); display: flex; align-items: center; gap: 1rem; }
+        .dc-card.wellness .dc-head { border-bottom-color: var(--color-secondary); background: linear-gradient(135deg, #E8F9F8, #fff); }
+        .dc-head-icon { font-size: 2.2rem; }
+        .dc-head h3 { font-size: 1.1rem; color: var(--color-navy); margin: 0; }
+        .dc-body { padding: 1.25rem 1.5rem; }
+        .dc-summary { color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border); }
+        .dc-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+        .dc-points li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.93rem; color: var(--color-text); line-height: 1.5; }
+        .dc-points li::before { content: "✓"; color: var(--color-success); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+
+        .cov-cta { background: var(--color-navy); color: white; padding: 64px 0; text-align: center; }
+        .cov-cta h2 { color: white; font-size: 2rem; margin-bottom: 0.75rem; }
+        .cov-cta p { color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 2rem; }
+
+        /* ════════════════════════════════════════
+           QUOTE PAGE (Page 3)
+        ════════════════════════════════════════ */
+        .quote-page-wrap { background: #f0f4fb; min-height: 100vh; padding-top: 80px; padding-bottom: 80px; }
+        .quote-inner { max-width: 680px; margin: 0 auto; padding: 48px 20px; }
+        .qp-header { text-align: center; margin-bottom: 32px; }
+        .qp-brand { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px; }
+        .qp-brand span { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--color-navy); }
+        .qp-header h1 { font-size: 2rem; color: var(--color-navy); margin-bottom: 8px; }
+        .qp-header p { color: var(--color-text-light); font-size: 0.95rem; }
+        .qp-back-link { background: none; border: none; color: var(--color-primary); font-weight: 600; cursor: pointer; font-size: 14px; margin-top: 10px; font-family: inherit; }
+
+        .qp-perks { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+        .qp-perk { display: flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; color: var(--color-text); }
+        .qp-perk::before { content: "✓"; color: var(--color-success); font-weight: 800; }
+
+        .qp-card { background: white; border-radius: 20px; box-shadow: 0 8px 40px rgba(26,43,74,0.1); padding: 40px; }
+        .qp-section-title { font-size: 1.3rem; color: var(--color-navy); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--color-bg-soft); }
+        .qp-divider { border: none; border-top: 1px solid var(--color-border); margin: 24px 0; }
+
+        .pet-type-row { display: flex; gap: 1rem; margin-bottom: 22px; }
+        .pet-btn { flex: 1; padding: 14px; border: 2px solid var(--color-border); border-radius: 12px; background: white; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 1rem; color: var(--color-text); cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .pet-btn:hover { border-color: var(--color-primary); color: var(--color-primary); }
+        .pet-btn.active { background: var(--color-primary); border-color: var(--color-primary); color: white; }
+        .pet-btn .pb-icon { font-size: 1.4rem; }
+
+        .qp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .qp-field { margin-bottom: 16px; }
+        .qp-field label { display: block; font-weight: 600; font-size: 12px; color: var(--color-navy); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .qp-field label .req { color: var(--color-primary); }
+        .qp-field input, .qp-field select {
+            width: 100%; padding: 13px 14px;
+            border: 1.5px solid var(--color-border); border-radius: 10px;
+            font-family: inherit; font-size: 15px; color: var(--color-text);
+            background: white; outline: none; transition: var(--transition);
+        }
+        .qp-field input:focus, .qp-field select:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(255,107,74,0.1); }
+        .qp-req-note { font-size: 12px; color: var(--color-text-light); margin-bottom: 16px; }
+
+        .qp-submit { width: 100%; padding: 17px; background: var(--color-primary); color: white; border: none; border-radius: var(--radius-btn); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: var(--transition); margin-top: 8px; }
+        .qp-submit:hover { background: var(--color-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,74,0.3); }
+        .qp-privacy-note { text-align: center; font-size: 12px; color: var(--color-text-light); margin-top: 10px; }
+        .qp-carrier-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-border); }
+        .qp-carrier-tag { background: var(--color-bg-soft); border: 1px solid var(--color-border); border-radius: 8px; padding: 7px 14px; font-size: 12px; font-weight: 600; color: var(--color-text-light); }
+
+        .qp-success { display: none; text-align: center; padding: 40px 20px; }
+        .qp-success .qs-emoji { font-size: 56px; margin-bottom: 16px; }
+        .qp-success h3 { font-size: 1.6rem; color: var(--color-navy); margin-bottom: 10px; }
+        .qp-success p { color: var(--color-text-light); font-size: 15px; margin-bottom: 28px; line-height: 1.7; }
+        .qp-success-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 70px; left: 0; right: 0;
+                background: white; flex-direction: column;
+                padding: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                transform: translateY(-150%); transition: transform 0.3s ease; gap: 1rem;
+            }
+            .nav-links.active { transform: translateY(0); }
+            .mobile-toggle { display: block; }
+            .hero-content, .form-grid { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .stats-grid, .process-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .detailed-grid { grid-template-columns: 1fr; }
+            .qp-row, .pet-type-row { grid-template-columns: 1fr; }
+            .qp-card { padding: 24px; }
+            .cov-page-hero h1 { font-size: 2.2rem; }
+        }
+        @media (max-width: 1200px) { .container { padding: 0 30px; } }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     STICKY NAVBAR
+════════════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a class="logo" onclick="showPage('home')">
+            <svg viewBox="0 0 24 24" fill="#FF6B4A">
+                <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M7,7C8.1,7 9,7.9 9,9C9,10.1 8.1,11 7,11C5.9,11 5,10.1 5,9C5,7.9 5.9,7 7,7M17,7C18.1,7 19,7.9 19,9C19,10.1 18.1,11 17,11C15.9,11 15,10.1 15,9C15,7.9 15.9,7 17,7M12,8C13.1,8 14,8.9 14,10C14,11.1 13.1,12 12,12C10.9,12 10,11.1 10,10C10,8.9 10.9,8 12,8M4,13C5.1,13 6,13.9 6,15C6,16.1 5.1,17 4,17C2.9,17 2,16.1 2,15C2,13.9 2.9,13 4,13M20,13C21.1,13 22,13.9 22,15C22,16.1 21.1,17 20,17C18.9,17 18,16.1 18,15C18,13.9 18.9,13 20,13M8,18C9.1,18 10,18.9 10,20C10,21.1 9.1,22 8,22C6.9,22 6,21.1 6,20C6,18.9 6.9,18 8,18M16,18C17.1,18 18,18.9 18,20C18,21.1 17.1,22 16,22C14.9,22 14,21.1 14,20C14,18.9 14.9,18 16,18Z"/>
+            </svg>
+            iPet Insurance Services
+        </a>
+        <button class="mobile-toggle" id="mobileToggle">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a onclick="showPage('home')" id="nav-home" class="active-nav">Home</a></li>
+            <li><a onclick="showPage('coverage')" id="nav-coverage">Coverage</a></li>
+            <li><a onclick="navGoTo('home','carriers')">Our Carriers</a></li>
+            <li><a onclick="showPage('quote')" id="nav-quote">Get a Quote</a></li>
+            <li><a onclick="navGoTo('home','about')">About Us</a></li>
+            <li><a onclick="navGoTo('home','contact')">Contact</a></li>
+            <li><a onclick="showPage('quote')" class="btn btn-primary" style="padding:10px 22px;font-size:0.9rem;">Get a Free Quote</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 1 — HOME
+════════════════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+    <!-- ── HERO ── -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Give Your Pet the Protection They Deserve</h1>
+                    <p class="subheadline">Compare top-rated pet insurance plans from California's trusted carriers — and find the perfect coverage for your dog or cat.</p>
+                    <div class="hero-buttons">
+                        <a onclick="showPage('quote')" class="btn btn-primary">Get My Free Quote</a>
+                        <a onclick="showPage('coverage')" class="btn btn-outline">Explore Coverage</a>
+                    </div>
+                    <div class="trust-badges">
+                        <div class="trust-badge">⭐ 4.8/5 Average Rating</div>
+                        <div class="trust-badge">🐾 500+ Happy Pet Families</div>
+                        <div class="trust-badge">🏆 Licensed CA Agency</div>
+                        <div class="trust-badge">📞 24/7 Support</div>
+                    </div>
+                </div>
+                <div>
+                    <!-- IMAGE PLACEHOLDER: Happy dog and cat together — replace src with your image path -->
+                    <!-- Example: <img src="hero-pets.jpg" alt="Happy dog and cat" style="width:100%;height:400px;object-fit:cover;border-radius:var(--radius-card);"> -->
+                    <div class="img-placeholder" style="height:400px;">
+                        <div class="ph-emoji">🐶🐱</div>
+                        <div class="ph-title">Hero Photo</div>
+                        <div class="ph-size">Replace with your image<br>Recommended: 600×400px</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#F8F9FB"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ── WHY PET INSURANCE ── -->
+    <section class="section" style="background:var(--color-bg-soft);">
+        <div class="container">
+            <h2 class="section-heading">Why Pet Insurance Matters</h2>
+            <p class="section-subtitle">Unexpected accidents and illnesses happen. Be prepared with coverage that gives you peace of mind.</p>
+            <div class="stats-grid">
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number" data-target="33">0</div>
+                    <div class="stat-label">% of pets need emergency vet care each year</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">$800+</div>
+                    <div class="stat-label">Average emergency vet bill — can exceed $10,000</div>
+                </div>
+                <div class="stat-card animate-on-scroll">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Reimbursement on covered vet expenses</div>
+                </div>
+            </div>
+            <div class="form-grid" style="margin-top:3rem;">
+                <div>
+                    <h3 style="font-size:1.5rem;margin-bottom:1rem;">How Pet Insurance Works</h3>
+                    <p>It's simple: you pay the vet at the time of service, then submit a claim to your insurance provider. Once approved, you get reimbursed for covered expenses — typically 70–90% of the bill.</p>
+                    <ol style="margin-top:1.5rem;padding-left:1.5rem;display:flex;flex-direction:column;gap:0.75rem;">
+                        <li><strong>Visit any vet</strong> — No network restrictions anywhere in the U.S.</li>
+                        <li><strong>Pay the bill</strong> — At the time of service as normal</li>
+                        <li><strong>Submit your claim</strong> — Online or via mobile app in minutes</li>
+                        <li><strong>Get reimbursed</strong> — Direct deposit or check, fast</li>
+                    </ol>
+                    <div style="margin-top:2rem;">
+                        <a onclick="showPage('quote')" class="btn btn-primary" style="cursor:pointer;">Get Protected Today →</a>
+                    </div>
+                </div>
+                <div>
+                    <!-- IMAGE PLACEHOLDER: Vet examining golden retriever — replace src with your image path -->
+                    <!-- Example: <img src="vet-dog.jpg" alt="Vet with dog" style="width:100%;height:300px;object-fit:cover;border-radius:var(--radius-card);"> -->
+                    <div class="img-placeholder" style="height:300px;">
+                        <div class="ph-emoji">👨‍⚕️🐕</div>
+                        <div class="ph-title">Vet &amp; Dog Photo</div>
+                        <div class="ph-size">Replace with your image<br>Recommended: 600×400px</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-heading">How Pet Insurance Works</h2>
+            <p class="section-subtitle">Getting coverage is easy, and you can use any licensed veterinarian in the U.S.</p>
+            <div class="process-grid">
+                <div class="process-step animate-on-scroll">
+                    <div class="step-icon">🐶</div>
+                    <h3 class="step-title">Choose Your Plan</h3>
+                    <p>Compare coverage options from our 3 top carriers to find the perfect fit for your pet and budget.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-icon">🏥</div>
+                    <h3 class="step-title">Visit Any Vet</h3>
+                    <p>No network restrictions. Use any licensed veterinarian or specialist in the United States.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-icon">📋</div>
+                    <h3 class="step-title">Submit Your Claim</h3>
+                    <p>Easy online or app-based claim submission. Simply upload your vet invoice and medical records.</p>
+                </div>
+                <div class="process-step animate-on-scroll">
+                    <div class="step-icon">💰</div>
+                    <h3 class="step-title">Get Reimbursed</h3>
+                    <p>Receive up to 90% back on covered expenses, typically within 2–5 business days.</p>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:3rem;">
+                <a onclick="showPage('coverage')" class="btn btn-primary" style="cursor:pointer;">Explore All Coverages →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COMMON COVERAGES (home summary) ── -->
+    <section class="section" style="background:var(--color-bg-soft);" id="coverage-home">
+        <div class="container">
+            <h2 class="section-heading">What's Typically Covered</h2>
+            <p class="section-subtitle">All three of our carrier partners offer these core protections for your dog or cat.</p>
+            <div class="coverage-grid">
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🤕</div><h3 class="coverage-title">Accidents &amp; Injuries</h3><p>Broken bones, lacerations, foreign object ingestion, poisoning</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🦠</div><h3 class="coverage-title">Illnesses &amp; Infections</h3><p>Skin conditions, ear/eye infections, UTIs, respiratory illness</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🔬</div><h3 class="coverage-title">Diagnostics &amp; Lab Tests</h3><p>Blood panels, urinalysis, X-rays, MRIs, CT scans, ultrasounds</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🏥</div><h3 class="coverage-title">Surgery &amp; Hospitalization</h3><p>Surgical procedures, overnight stays, post-operative care</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">💊</div><h3 class="coverage-title">Prescription Medications</h3><p>Medications prescribed by a licensed veterinarian</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🧬</div><h3 class="coverage-title">Hereditary &amp; Congenital Conditions</h3><p>Breed-specific conditions like hip dysplasia, heart disease</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🦷</div><h3 class="coverage-title">Dental Illness</h3><p>Tooth extractions, gingivitis, periodontal disease</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🎗️</div><h3 class="coverage-title">Cancer Treatment</h3><p>Chemotherapy, radiation, surgery for cancer diagnosis</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🚑</div><h3 class="coverage-title">Emergency &amp; Specialty Care</h3><p>ER visits, specialist referrals, rehabilitation therapy</p></div>
+                <div class="coverage-card animate-on-scroll"><div class="coverage-icon">🌡️</div><h3 class="coverage-title">Chronic Conditions</h3><p>Diabetes, arthritis, allergies, hypothyroidism management</p></div>
+            </div>
+            <div class="coverage-card" style="margin-top:2rem;border-left:4px solid var(--color-secondary);">
+                <h3 style="color:var(--color-navy);margin-bottom:0.5rem;">✨ Wellness Add-Ons Available</h3>
+                <p>Many plans also offer optional Wellness Add-ons covering annual exams, vaccinations, flea/heartworm prevention, spay/neuter, and dental cleanings.</p>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem;">
+                <a onclick="showPage('coverage')" class="btn btn-primary" style="cursor:pointer;">See Full Detailed Coverage →</a>
+            </div>
+            <div style="margin-top:2.5rem;">
+                <!-- IMAGE PLACEHOLDER: Vet examining cat — replace src with your image path -->
+                <!-- Example: <img src="vet-cat.jpg" alt="Vet with cat" style="width:100%;max-width:500px;height:280px;object-fit:cover;border-radius:var(--radius-card);display:block;margin:0 auto;"> -->
+                <div class="img-placeholder" style="max-width:500px;height:240px;margin:0 auto;">
+                    <div class="ph-emoji">🐱👐</div>
+                    <div class="ph-title">Vet &amp; Cat Photo</div>
+                    <div class="ph-size">Replace with your image<br>Recommended: 500×350px</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CARRIERS ── -->
+    <section class="section" id="carriers">
+        <div class="container">
+            <h2 class="section-heading">Trusted Carriers We Work With</h2>
+            <p class="section-subtitle">As an independent agency, we shop the market so you don't have to.</p>
+            <div class="carrier-grid">
+
+                <!-- Lemonade -->
+                <div class="carrier-card animate-on-scroll">
+                    <div class="carrier-header" style="background:linear-gradient(135deg,#FF9A8B,#FF6B4A);">
+                        <div class="carrier-logo">
+                            <!-- IMAGE PLACEHOLDER: Replace with Lemonade logo -->
+                            <!-- <img src="lemonade-logo.png" alt="Lemonade" style="width:100%;height:100%;object-fit:contain;padding:8px;"> -->
+                            <div class="logo-placeholder">📸 Lemonade Logo</div>
+                        </div>
+                        <h3 style="color:white;">Lemonade Pet Insurance</h3>
+                    </div>
+                    <div class="carrier-body">
+                        <ul class="carrier-highlights">
+                            <li>Fast AI-powered claims (often paid in seconds)</li>
+                            <li>Customizable deductibles and reimbursement levels</li>
+                            <li>Preventive care add-on available</li>
+                            <li>Digital-first, app-based experience</li>
+                        </ul>
+                    </div>
+                    <div class="carrier-footer">
+                        <a href="https://www.lemonade.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.9rem;padding:10px 20px;">Learn More</a>
+                        <a onclick="showPage('quote')" class="btn btn-primary" style="font-size:0.9rem;padding:10px 20px;cursor:pointer;">Get a Quote</a>
+                    </div>
+                </div>
+
+                <!-- ASPCA -->
+                <div class="carrier-card animate-on-scroll">
+                    <div class="carrier-header" style="background:linear-gradient(135deg,#00B4DB,#0083B0);">
+                        <div class="carrier-logo">
+                            <!-- IMAGE PLACEHOLDER: Replace with ASPCA logo -->
+                            <!-- <img src="aspca-logo.png" alt="ASPCA" style="width:100%;height:100%;object-fit:contain;padding:8px;"> -->
+                            <div class="logo-placeholder">📸 ASPCA Logo</div>
+                        </div>
+                        <h3 style="color:white;">ASPCA Pet Insurance</h3>
+                    </div>
+                    <div class="carrier-body">
+                        <ul class="carrier-highlights">
+                            <li>Backed by the trusted ASPCA name since 1997</li>
+                            <li>Covers exam fees, even for accidents and illnesses</li>
+                            <li>No upper age limits for enrollment</li>
+                            <li>Part of your premium supports ASPCA's mission</li>
+                        </ul>
+                    </div>
+                    <div class="carrier-footer">
+                        <a href="https://www.aspcapetinsurance.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="color:#0083B0;border-color:#0083B0;font-size:0.9rem;padding:10px 20px;">Learn More</a>
+                        <a onclick="showPage('quote')" class="btn btn-primary" style="font-size:0.9rem;padding:10px 20px;cursor:pointer;">Get a Quote</a>
+                    </div>
+                </div>
+
+                <!-- Spot -->
+                <div class="carrier-card animate-on-scroll">
+                    <div class="carrier-header" style="background:linear-gradient(135deg,#FF6B4A,#FF8E53);">
+                        <div class="carrier-logo">
+                            <!-- IMAGE PLACEHOLDER: Replace with Spot logo -->
+                            <!-- <img src="spot-logo.png" alt="Spot" style="width:100%;height:100%;object-fit:contain;padding:8px;"> -->
+                            <div class="logo-placeholder">📸 Spot Logo</div>
+                        </div>
+                        <h3 style="color:white;">Spot Pet Insurance</h3>
+                    </div>
+                    <div class="carrier-body">
+                        <ul class="carrier-highlights">
+                            <li>Up to 90% reimbursement on covered vet bills</li>
+                            <li>No restrictions on vet choice (any licensed U.S. vet)</li>
+                            <li>Covers dental illness and behavioral therapy</li>
+                            <li>24/7 pet telehealth helpline included</li>
+                        </ul>
+                    </div>
+                    <div class="carrier-footer">
+                        <a href="https://spotpet.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.9rem;padding:10px 20px;">Learn More</a>
+                        <a onclick="showPage('quote')" class="btn btn-primary" style="font-size:0.9rem;padding:10px 20px;cursor:pointer;">Get a Quote</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── COMPARISON TABLE ── -->
+    <section class="section" style="background:var(--color-bg-soft);">
+        <div class="container">
+            <h2 class="section-heading">Compare Coverage at a Glance</h2>
+            <p class="section-subtitle">We help you find the plan that fits your pet and your budget.</p>
+            <div class="table-container animate-on-scroll">
+                <table>
+                    <thead>
+                        <tr><th>Feature</th><th>🍋 Lemonade</th><th>🐾 ASPCA</th><th>🟠 Spot</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Accident Coverage</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Illness Coverage</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Hereditary Conditions</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Dental Illness</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Cancer Treatment</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Vet Exam Fees</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Behavioral Therapy</td><td>✅</td><td>Limited</td><td>✅</td></tr>
+                        <tr><td>Wellness Add-On</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Telehealth</td><td class="check">✅</td><td>❌</td><td class="check">✅</td></tr>
+                        <tr><td>Claims App</td><td class="check">✅</td><td class="check">✅</td><td class="check">✅</td></tr>
+                        <tr><td>Max Reimbursement</td><td>Up to 90%</td><td>Up to 90%</td><td>Up to 90%</td></tr>
+                        <tr><td>Annual Deductible</td><td>Flexible</td><td>Flexible</td><td>Flexible</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="text-align:center;color:var(--color-text-light);margin-top:1rem;font-size:0.9rem;">Coverage details vary by plan and state. Contact us for a personalized comparison.</p>
+            <div style="text-align:center;margin-top:2rem;">
+                <!-- Talk to an Agent → calls your mobile number directly -->
+                <a href="tel:9099664064" class="btn btn-primary">📞 Talk to an Agent — 909-966-4064</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── QUOTE CTA ── -->
+    <section class="section" id="quote-home">
+        <div class="container">
+            <div class="form-grid">
+                <div>
+                    <h2 style="font-size:2.2rem;margin-bottom:1rem;">Get Your Free, Personalized Quote</h2>
+                    <p style="font-size:1.1rem;color:var(--color-text-light);margin-bottom:2rem;">It takes less than 2 minutes. No obligation, no spam — ever.</p>
+                    <div style="background:var(--color-bg-warm);border-radius:var(--radius-card);padding:2rem;border:1px solid #ffddd5;">
+                        <p style="font-size:1rem;line-height:1.8;color:var(--color-text);">As a licensed California independent agency, we compare <strong>Lemonade</strong>, <strong>ASPCA</strong>, and <strong>Spot</strong> side by side — so you always get the best coverage for your unique pet, at the best price.</p>
+                        <ul style="margin-top:1rem;padding-left:1.5rem;display:flex;flex-direction:column;gap:0.5rem;color:var(--color-text);">
+                            <li>✓ Free, no-obligation comparison</li>
+                            <li>✓ Licensed CA insurance agents</li>
+                            <li>✓ Results in under 2 minutes</li>
+                            <li>✓ We never sell your data</li>
+                        </ul>
+                        <div style="margin-top:1.5rem;">
+                            <a onclick="showPage('quote')" class="btn btn-primary" style="cursor:pointer;">🐾 Start Your Free Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- IMAGE PLACEHOLDER: Happy pet owner with dog — replace src with your image path -->
+                    <!-- Example: <img src="pet-owner.jpg" alt="Pet owner with dog" style="width:100%;height:400px;object-fit:cover;border-radius:var(--radius-card);"> -->
+                    <div class="img-placeholder" style="height:380px;">
+                        <div class="ph-emoji">👩‍💼🐕</div>
+                        <div class="ph-title">Pet Owner Photo</div>
+                        <div class="ph-size">Replace with your image<br>Recommended: 500×400px</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FAQ ── -->
+    <section class="section" style="background:var(--color-bg-soft);" id="faq">
+        <div class="container">
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            <p class="section-subtitle" style="margin-bottom:2rem;">Everything you need to know before getting covered.</p>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">What is pet insurance and how does it work? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>Pet insurance helps cover unexpected veterinary costs. You pay monthly premiums, visit any licensed vet when your pet needs care, pay the bill, then submit a claim to get reimbursed — typically 70–90% of covered costs.</p></div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">Is iPet Insurance Services an insurance company? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>No — we are a licensed independent insurance agency in California. We represent multiple top-rated carriers and help you find the best plan for your pet and budget. We are not an insurer ourselves.</p></div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">When should I enroll my pet? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>The sooner, the better! Most carriers have waiting periods (10–14 days for illness, 2–5 days for accidents), and pre-existing conditions are typically excluded. Enrolling while your pet is young and healthy gives you the widest coverage.</p></div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">Are there any breed restrictions? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>All three of our partner carriers cover all dog breeds and cat breeds, including purebreds and mixed breeds. Some hereditary conditions may have specific waiting periods.</p></div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">Can I use any veterinarian? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>Yes! All three of our carrier partners allow you to visit any licensed veterinarian or specialist in the United States and Canada — no network restrictions, ever.</p></div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">How much does pet insurance cost? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>Plans typically start from $15–$30/month for dogs and $9–$20/month for cats, depending on breed, age, location, and coverage level. Contact us for a free personalized quote.</p></div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">What is not covered by pet insurance? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>Pre-existing conditions, elective procedures, and cosmetic treatments are generally not covered. Routine/preventive care may require an optional wellness add-on.</p></div>
+            </div>
+            <div class="faq-item animate-on-scroll">
+                <div class="faq-question">How do I file a claim? <span class="faq-icon">+</span></div>
+                <div class="faq-answer"><p>Each carrier has an online portal or mobile app for claim submission. Simply upload your vet invoice and medical records. Claims are typically processed within 2–5 business days.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── ABOUT ── -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-heading">About iPet Insurance Services</h2>
+            <div class="form-grid">
+                <div>
+                    <p style="font-size:1.05rem;line-height:1.8;">iPet Insurance Services is a California-licensed, independent pet insurance agency founded by pet lovers, for pet lovers. Our mission is to make quality pet insurance accessible and understandable for every California family with a furry member.</p>
+                    <p style="margin-top:1rem;font-size:1.05rem;line-height:1.8;">We believe every pet deserves great healthcare, and every pet parent deserves peace of mind. Our knowledgeable team helps you compare plans from Lemonade, ASPCA, and Spot to find the perfect coverage for your unique situation.</p>
+                    <div class="stats-grid" style="margin-top:2rem;">
+                        <div class="stat-card" style="padding:1.5rem;"><div style="font-size:1.5rem;">🏅</div><div style="font-weight:600;margin-top:0.5rem;">CA Licensed Agency</div></div>
+                        <div class="stat-card" style="padding:1.5rem;"><div style="font-size:1.5rem;">🤝</div><div style="font-weight:600;margin-top:0.5rem;">3 Carrier Partners</div></div>
+                        <div class="stat-card" style="padding:1.5rem;"><div style="font-size:1.5rem;">⭐</div><div style="font-weight:600;margin-top:0.5rem;">500+ Families Helped</div></div>
+                        <div class="stat-card" style="padding:1.5rem;"><div style="font-size:1.5rem;">📍</div><div style="font-weight:600;margin-top:0.5rem;">Serving All California</div></div>
+                    </div>
+                </div>
+                <div>
+                    <!-- IMAGE PLACEHOLDER: Team or agent photo — replace src with your image path -->
+                    <!-- Example: <img src="team-photo.jpg" alt="Our team" style="width:100%;height:420px;object-fit:cover;border-radius:var(--radius-card);"> -->
+                    <div class="img-placeholder" style="height:420px;">
+                        <div class="ph-emoji">👩‍💼🐾</div>
+                        <div class="ph-title">Team / Agent Photo</div>
+                        <div class="ph-size">Replace with your image<br>Recommended: 600×420px</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CONTACT / CTA ── -->
+    <section class="section" id="contact" style="background:linear-gradient(135deg,var(--color-bg-warm) 0%,white 100%);text-align:center;">
+        <div class="container">
+            <h2 class="section-heading">Ready to Protect Your Pet?</h2>
+            <p class="section-subtitle" style="margin-bottom:2rem;">Get a no-obligation quote in 2 minutes.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+                <a onclick="showPage('quote')" class="btn btn-primary" style="font-size:1.1rem;padding:16px 40px;cursor:pointer;">Get My Free Quote Now</a>
+                <a href="tel:9099664064" class="btn btn-outline" style="font-size:1.1rem;padding:16px 40px;">📞 Call Us Now</a>
+            </div>
+            <!-- Contact info box with real phone and email -->
+            <div class="contact-info-box" style="max-width:580px;margin:0 auto;">
+                <h3 style="font-size:1.3rem;color:var(--color-navy);">Get in Touch With Us</h3>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <span class="cm-icon">📞</span>
+                        <span class="cm-label">Call Us</span>
+                        <a href="tel:9099664064" class="cm-value">909-966-4064</a>
+                    </div>
+                    <div class="contact-method">
+                        <span class="cm-icon">✉️</span>
+                        <span class="cm-label">Email Us</span>
+                        <a href="/cdn-cgi/l/email-protection#0a646b7c646f6f7e4a786b63646c6b66666364796b24696567" class="cm-value"><span class="__cf_email__" data-cfemail="315f50475f545445714350585f57505d5d585f42501f525e5c">[email&#160;protected]</span></a>
+                    </div>
+                    <div class="contact-method">
+                        <span class="cm-icon">📍</span>
+                        <span class="cm-label">Location</span>
+                        <span class="cm-value">California, USA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <a class="footer-logo" onclick="showPage('home')">
+                        <svg viewBox="0 0 24 24" fill="#FF6B4A" style="width:32px;height:32px;flex-shrink:0;">
+                            <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M7,7C8.1,7 9,7.9 9,9C9,10.1 8.1,11 7,11C5.9,11 5,10.1 5,9C5,7.9 5.9,7 7,7M17,7C18.1,7 19,7.9 19,9C19,10.1 18.1,11 17,11C15.9,11 15,10.1 15,9C15,7.9 15.9,7 17,7M12,8C13.1,8 14,8.9 14,10C14,11.1 13.1,12 12,12C10.9,12 10,11.1 10,10C10,8.9 10.9,8 12,8M4,13C5.1,13 6,13.9 6,15C6,16.1 5.1,17 4,17C2.9,17 2,16.1 2,15C2,13.9 2.9,13 4,13M20,13C21.1,13 22,13.9 22,15C22,16.1 21.1,17 20,17C18.9,17 18,16.1 18,15C18,13.9 18.9,13 20,13M8,18C9.1,18 10,18.9 10,20C10,21.1 9.1,22 8,22C6.9,22 6,21.1 6,20C6,18.9 6.9,18 8,18M16,18C17.1,18 18,18.9 18,20C18,21.1 17.1,22 16,22C14.9,22 14,21.1 14,20C14,18.9 14.9,18 16,18Z"/>
+                        </svg>
+                        iPet Insurance Services
+                    </a>
+                    <p style="color:rgba(255,255,255,0.75);margin-top:0.5rem;font-size:0.9rem;line-height:1.6;">Protecting Every Paw, Every Tail, Every Day.<br>Licensed California Insurance Agency</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">𝕏</a>
+                        <a href="#" class="social-icon">📷</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a onclick="showPage('home')">Home</a></li>
+                        <li><a onclick="showPage('coverage')">Coverage</a></li>
+                        <li><a onclick="navGoTo('home','carriers')">Our Carriers</a></li>
+                        <li><a onclick="showPage('quote')">Get a Quote</a></li>
+                        <li><a onclick="navGoTo('home','about')">About Us</a></li>
+                        <li><a onclick="navGoTo('home','contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Our Carriers</h4>
+                    <ul>
+                        <li><a href="https://www.lemonade.com/" target="_blank" rel="noopener noreferrer">Lemonade</a></li>
+                        <li><a href="https://www.aspcapetinsurance.com/" target="_blank" rel="noopener noreferrer">ASPCA</a></li>
+                        <li><a href="https://spotpet.com/" target="_blank" rel="noopener noreferrer">Spot</a></li>
+                    </ul>
+                    <h4 style="margin-top:1.5rem;">Contact</h4>
+                    <ul>
+                        <li><a href="tel:9099664064">909-966-4064</a></li>
+                        <li><a href="/cdn-cgi/l/email-protection#fc929d8a92999988bc8e9d95929a9d909095928f9dd29f9391"><span class="__cf_email__" data-cfemail="5937382f373c3c2d192b3830373f38353530372a38773a3634">[email&#160;protected]</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>iPet Insurance Services is a licensed insurance agency in the state of California. We are not affiliated with or employed by any insurance carrier. Coverage details, pricing, and availability vary by carrier, plan, state, and individual pet. Please review all policy documents carefully before purchasing.</p>
+                <p style="margin-top:1rem;">© 2025 iPet Insurance Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</div><!-- /page-home -->
+
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 2 — DETAILED COVERAGE
+════════════════════════════════════════════════════ -->
+<div id="page-coverage" class="page">
+
+    <div style="height:80px;"></div>
+
+    <div class="cov-page-hero">
+        <div class="container">
+            <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+            <h1 style="margin-top:1.5rem;">Complete Coverage Guide</h1>
+            <p>Everything your pet is protected against — explained in detail. All three of our carrier partners provide these core coverages.</p>
+            <a onclick="showPage('quote')" class="btn btn-primary" style="cursor:pointer;">Get a Free Quote for Your Pet</a>
+        </div>
+    </div>
+
+    <section class="section" style="background:var(--color-bg-soft);">
+        <div class="container">
+            <h2 class="section-heading">What Each Coverage Includes</h2>
+            <p class="section-subtitle">Four detailed points under each coverage type — so you know exactly what you're protected against.</p>
+            <div class="detailed-grid">
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🤕</span><h3>Accidents &amp; Injuries</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Coverage for sudden, unexpected physical harm caused by external events.</p>
+                        <ul class="dc-points">
+                            <li>Broken bones, fractures, and sprains from falls, collisions, or trauma</li>
+                            <li>Lacerations, bite wounds, and injuries requiring stitches or surgery</li>
+                            <li>Foreign object ingestion requiring endoscopy or surgical removal</li>
+                            <li>Poisoning or toxic ingestion — including emergency hospitalization and treatment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🦠</span><h3>Illnesses &amp; Infections</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Covers a wide range of common and serious illness diagnoses and treatments.</p>
+                        <ul class="dc-points">
+                            <li>Skin conditions, hot spots, fungal and bacterial skin infections</li>
+                            <li>Ear infections, eye infections, and conjunctivitis treatment</li>
+                            <li>Urinary tract infections (UTIs), bladder stones, and kidney disease</li>
+                            <li>Respiratory illness, pneumonia, and upper respiratory infections</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🔬</span><h3>Diagnostics &amp; Lab Tests</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">All the testing needed to accurately diagnose what's wrong with your pet.</p>
+                        <ul class="dc-points">
+                            <li>Blood panels, urinalysis, fecal tests, and culture results</li>
+                            <li>X-rays, ultrasounds, echocardiograms, and other imaging studies</li>
+                            <li>MRI and CT scans for neurological and internal conditions</li>
+                            <li>Biopsy, cytology, and pathology for cancer or tumor evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🏥</span><h3>Surgery &amp; Hospitalization</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Full surgical and inpatient care costs when your pet needs more intensive treatment.</p>
+                        <ul class="dc-points">
+                            <li>Surgical procedures including anesthesia and operating room fees</li>
+                            <li>Overnight stays and multi-day hospitalization at veterinary clinics</li>
+                            <li>Post-operative care, follow-up exams, and wound management</li>
+                            <li>Specialist referral fees for surgery centers and veterinary hospitals</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">💊</span><h3>Prescription Medications</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Covers the cost of prescription drugs needed to treat covered conditions.</p>
+                        <ul class="dc-points">
+                            <li>Antibiotics and antifungals prescribed by a licensed veterinarian</li>
+                            <li>Anti-inflammatory, pain management, and steroid medications</li>
+                            <li>Chemotherapy drugs and specialty oncology medications</li>
+                            <li>Chronic disease medications for thyroid, diabetes, and heart conditions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🧬</span><h3>Hereditary &amp; Congenital Conditions</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Breed-specific and genetic conditions that manifest during your pet's lifetime.</p>
+                        <ul class="dc-points">
+                            <li>Hip and elbow dysplasia in large breeds like Labs and German Shepherds</li>
+                            <li>Heart conditions such as mitral valve disease and cardiomyopathy</li>
+                            <li>Cataracts, progressive retinal atrophy, and other eye disorders</li>
+                            <li>Brachycephalic syndrome in flat-faced breeds such as Bulldogs and Pugs</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🦷</span><h3>Dental Illness</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Coverage for dental diseases — genuine dental health issues, not cosmetic cleaning.</p>
+                        <ul class="dc-points">
+                            <li>Tooth extractions for severely infected or broken teeth</li>
+                            <li>Gingivitis treatment and deep periodontal cleaning procedures</li>
+                            <li>Periodontal disease management and jaw bone infections</li>
+                            <li>Fractured or chipped teeth causing pain or secondary infection</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🎗️</span><h3>Cancer Treatment</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Comprehensive cancer care from diagnosis all the way through treatment and follow-up.</p>
+                        <ul class="dc-points">
+                            <li>Chemotherapy infusions, oral chemotherapy, and associated medications</li>
+                            <li>Radiation therapy sessions at veterinary oncology centers</li>
+                            <li>Surgical tumor removal and biopsy procedures</li>
+                            <li>Imaging, staging tests, and specialist oncology consultations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🚑</span><h3>Emergency &amp; Specialty Care</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">After-hours emergencies and specialist referrals are fully included.</p>
+                        <ul class="dc-points">
+                            <li>Emergency room visits at 24/7 veterinary emergency hospitals</li>
+                            <li>Specialist referrals: cardiologists, neurologists, dermatologists</li>
+                            <li>Physical and hydrotherapy rehabilitation after injury or surgery</li>
+                            <li>Oxygen therapy, IV fluids, blood transfusions in critical care</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card">
+                    <div class="dc-head"><span class="dc-head-icon">🌡️</span><h3>Chronic Conditions</h3></div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Long-term management of ongoing medical conditions that require continuous care.</p>
+                        <ul class="dc-points">
+                            <li>Diabetes management including insulin, monitoring supplies, and vet visits</li>
+                            <li>Arthritis treatment with NSAIDs, joint supplements, and physical therapy</li>
+                            <li>Allergy diagnosis, immunotherapy shots, and allergy management plans</li>
+                            <li>Hypothyroidism and hyperthyroidism medication and ongoing monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dc-card wellness">
+                    <div class="dc-head" style="border-bottom-color:var(--color-secondary);background:linear-gradient(135deg,#E8F9F8,#fff);">
+                        <span class="dc-head-icon">✨</span><h3>Wellness Add-Ons (Optional)</h3>
+                    </div>
+                    <div class="dc-body">
+                        <p class="dc-summary">Optional preventive care riders available from all three carrier partners.</p>
+                        <ul class="dc-points">
+                            <li>Annual wellness exams and routine physical checkups with your vet</li>
+                            <li>Core and non-core vaccinations (rabies, DHPP, Bordetella, and more)</li>
+                            <li>Flea, tick, and heartworm prevention medications and treatments</li>
+                            <li>Spay/neuter procedures and dental cleaning reimbursements</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="cov-cta">
+        <div class="container">
+            <h2>Ready to Protect Your Pet?</h2>
+            <p>Get a personalized quote comparing all three carriers in under 2 minutes.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                <a onclick="showPage('quote')" class="btn btn-primary" style="cursor:pointer;font-size:1.1rem;padding:16px 40px;">🐾 Get My Free Quote</a>
+                <button onclick="showPage('home')" class="btn" style="background:rgba(255,255,255,0.12);color:white;border:2px solid rgba(255,255,255,0.4);font-size:1.1rem;padding:16px 40px;">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /page-coverage -->
+
+
+<!-- ════════════════════════════════════════════════════
+     PAGE 3 — GET A QUOTE
+════════════════════════════════════════════════════ -->
+<div id="page-quote" class="page">
+    <div class="quote-page-wrap">
+        <div class="quote-inner">
+
+            <div class="qp-header">
+                <div class="qp-brand">
+                    <svg viewBox="0 0 24 24" fill="#FF6B4A" width="36" height="36">
+                        <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M7,7C8.1,7 9,7.9 9,9C9,10.1 8.1,11 7,11C5.9,11 5,10.1 5,9C5,7.9 5.9,7 7,7M17,7C18.1,7 19,7.9 19,9C19,10.1 18.1,11 17,11C15.9,11 15,10.1 15,9C15,7.9 15.9,7 17,7M12,8C13.1,8 14,8.9 14,10C14,11.1 13.1,12 12,12C10.9,12 10,11.1 10,10C10,8.9 10.9,8 12,8M4,13C5.1,13 6,13.9 6,15C6,16.1 5.1,17 4,17C2.9,17 2,16.1 2,15C2,13.9 2.9,13 4,13M20,13C21.1,13 22,13.9 22,15C22,16.1 21.1,17 20,17C18.9,17 18,16.1 18,15C18,13.9 18.9,13 20,13M8,18C9.1,18 10,18.9 10,20C10,21.1 9.1,22 8,22C6.9,22 6,21.1 6,20C6,18.9 6.9,18 8,18M16,18C17.1,18 18,18.9 18,20C18,21.1 17.1,22 16,22C14.9,22 14,21.1 14,20C14,18.9 14.9,18 16,18Z"/>
+                    </svg>
+                    <span>iPet Insurance Services</span>
+                </div>
+                <h1>Compare Pet Insurance Plans</h1>
+                <p>Get personalized quotes from Lemonade, ASPCA &amp; Spot — free, in under 2 minutes.</p>
+                <button class="qp-back-link" onclick="showPage('home')">← Back to Home</button>
+            </div>
+
+            <div class="qp-perks">
+                <span class="qp-perk">No credit checks</span>
+                <span class="qp-perk">Customized coverage</span>
+                <span class="qp-perk">Risk-free cancellation</span>
+                <span class="qp-perk">Multiple pet discounts</span>
+            </div>
+
+            <div class="qp-card">
+                <form id="quotePageForm">
+
+                    <div class="qp-section-title">Tell Us About Your Pet</div>
+                    <p class="qp-req-note">* = required field</p>
+
+                    <div class="pet-type-row">
+                        <button type="button" class="pet-btn active" id="btnDog" onclick="selectPet('Dog')">
+                            <span class="pb-icon">🐶</span> Dog
+                        </button>
+                        <button type="button" class="pet-btn" id="btnCat" onclick="selectPet('Cat')">
+                            <span class="pb-icon">🐱</span> Cat
+                        </button>
+                    </div>
+                    <input type="hidden" id="qpPetType" value="Dog">
+
+                    <div class="qp-row">
+                        <div class="qp-field">
+                            <label>Pet Name <span class="req">*</span></label>
+                            <input type="text" id="qpPetName" placeholder="e.g. Buddy" required>
+                        </div>
+                        <div class="qp-field">
+                            <label>Gender <span class="req">*</span></label>
+                            <select id="qpGender" required>
+                                <option value="">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="qp-row">
+                        <div class="qp-field">
+                            <label>Birth Month <span class="req">*</span></label>
+                            <select id="qpMonth" required>
+                                <option value="">Select Month</option>
+                                <option>January</option><option>February</option><option>March</option>
+                                <option>April</option><option>May</option><option>June</option>
+                                <option>July</option><option>August</option><option>September</option>
+                                <option>October</option><option>November</option><option>December</option>
+                            </select>
+                        </div>
+                        <div class="qp-field">
+                            <label>Birth Year <span class="req">*</span></label>
+                            <select id="qpYear" required>
+                                <option value="">Select Year</option>
+                                <option>2026</option><option>2025</option><option>2024</option>
+                                <option>2023</option><option>2022</option><option>2021</option>
+                                <option>2020</option><option>2019</option><option>2018</option>
+                                <option>2017</option><option>2016</option><option>2015</option>
+                                <option>2014</option><option>2013</option><option>2012</option>
+                                <option>2011</option><option>2010</option><option>2009</option>
+                                <option>2008</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="qp-field">
+                        <label>Breed <span class="req">*</span></label>
+                        <input type="text" id="qpBreed" placeholder="e.g. Golden Retriever, Mixed Breed" required list="breedList">
+                        <datalist id="breedList">
+                            <option>Mixed Breed Small</option><option>Mixed Breed Medium</option><option>Mixed Breed Large</option>
+                            <option>Labrador Retriever</option><option>Golden Retriever</option><option>German Shepherd</option>
+                            <option>French Bulldog</option><option>Bulldog</option><option>Poodle</option>
+                            <option>Beagle</option><option>Rottweiler</option><option>Yorkshire Terrier</option>
+                            <option>Boxer</option><option>Dachshund</option><option>Siberian Husky</option>
+                            <option>Great Dane</option><option>Doberman Pinscher</option><option>Chihuahua</option>
+                            <option>Shih Tzu</option><option>Border Collie</option><option>Australian Shepherd</option>
+                            <option>Domestic Shorthair</option><option>Persian</option><option>Maine Coon</option>
+                            <option>Siamese</option><option>Ragdoll</option><option>Bengal</option>
+                        </datalist>
+                    </div>
+
+                    <hr class="qp-divider">
+                    <div class="qp-section-title">About You</div>
+
+                    <div class="qp-row">
+                        <div class="qp-field">
+                            <label>First Name <span class="req">*</span></label>
+                            <input type="text" id="qpFirstName" placeholder="First name" required>
+                        </div>
+                        <div class="qp-field">
+                            <label>Last Name <span class="req">*</span></label>
+                            <input type="text" id="qpLastName" placeholder="Last name" required>
+                        </div>
+                    </div>
+
+                    <div class="qp-field">
+                        <label>Email Address <span class="req">*</span></label>
+                        <input type="email" id="qpEmail" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="qp-row">
+                        <div class="qp-field">
+                            <label>Phone Number</label>
+                            <input type="tel" id="qpPhone" placeholder="(555) 000-0000">
+                        </div>
+                        <div class="qp-field">
+                            <label>ZIP Code <span class="req">*</span></label>
+                            <input type="text" id="qpZip" placeholder="e.g. 90210" maxlength="5" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="qp-submit">🐾 Compare My Quotes — It's Free!</button>
+                    <p class="qp-privacy-note">🔒 Your information is secure and never sold to third parties. Licensed CA Insurance Agency.</p>
+
+                    <div class="qp-carrier-row">
+                        <span class="qp-carrier-tag">🍋 Lemonade</span>
+                        <span class="qp-carrier-tag">🐾 ASPCA</span>
+                        <span class="qp-carrier-tag">🟠 Spot Pet</span>
+                        <span class="qp-carrier-tag">📞 909-966-4064</span>
+                    </div>
+                </form>
+
+                <!-- Success state -->
+                <div class="qp-success" id="qpSuccess">
+                    <div class="qs-emoji">🎉</div>
+                    <h3>You're all set, pet parent!</h3>
+                    <p>Thank you! One of our licensed California agents will reach out within 1 business day with personalized quotes from Lemonade, ASPCA, and Spot — tailored to your pet.</p>
+                    <div class="qp-success-btns">
+                        <a href="tel:9099664064" class="btn btn-primary">📞 Call Us: 909-966-4064</a>
+                        <button onclick="showPage('home')" class="btn btn-outline">Back to Home</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div><!-- /page-quote -->
+
+
+<!-- Floating Quote Button -->
+<div class="floating-quote" id="floatingQuote" onclick="showPage('quote')">
+    <span style="font-size:1.5rem;">🐾</span>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════ -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    /* ── PAGE NAVIGATION ── */
+    function showPage(name) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('page-' + name).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // update nav highlights
+        ['home','coverage','quote'].forEach(n => {
+            const el = document.getElementById('nav-' + n);
+            if (el) el.classList.toggle('active-nav', n === name);
+        });
+        // close mobile menu
+        document.getElementById('navLinks').classList.remove('active');
+        document.getElementById('mobileToggle').textContent = '☰';
+    }
+
+    function navGoTo(page, section) {
+        showPage(page);
+        setTimeout(() => {
+            const el = document.getElementById(section);
+            if (el) {
+                const offset = document.getElementById('navbar').offsetHeight + 20;
+                window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
+            }
+        }, 120);
+    }
+
+    /* ── MOBILE TOGGLE ── */
+    document.getElementById('mobileToggle').addEventListener('click', function() {
+        const nl = document.getElementById('navLinks');
+        nl.classList.toggle('active');
+        this.textContent = nl.classList.contains('active') ? '✕' : '☰';
+    });
+
+    /* ── STICKY NAV + FLOATING BTN ── */
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        document.getElementById('floatingQuote').classList.toggle('visible', window.scrollY > 300);
+    });
+
+    /* ── FAQ ACCORDION ── */
+    document.querySelectorAll('.faq-question').forEach(q => {
+        q.addEventListener('click', () => {
+            const item = q.parentElement;
+            const wasOpen = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!wasOpen) item.classList.add('active');
+        });
+    });
+
+    /* ── PET TYPE BUTTONS ── */
+    function selectPet(type) {
+        document.getElementById('qpPetType').value = type;
+        document.getElementById('btnDog').classList.toggle('active', type === 'Dog');
+        document.getElementById('btnCat').classList.toggle('active', type === 'Cat');
+    }
+
+    /* ── QUOTE FORM SUBMIT ── */
+    document.getElementById('quotePageForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const required = ['qpPetName','qpGender','qpMonth','qpYear','qpBreed','qpFirstName','qpLastName','qpEmail','qpZip'];
+        let valid = true;
+        required.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el.value.trim()) { el.style.borderColor = 'var(--color-primary)'; valid = false; }
+            else el.style.borderColor = '';
+        });
+        if (!valid) { alert('Please fill in all required fields marked with *.'); return; }
+        this.style.display = 'none';
+        document.getElementById('qpSuccess').style.display = 'block';
+    });
+
+    /* ── COUNTER ANIMATION ── */
+    function animateCounter(el, target) {
+        let start = 0;
+        const inc = target / 125;
+        const timer = setInterval(() => {
+            start += inc;
+            if (start >= target) { el.textContent = target; clearInterval(timer); }
+            else el.textContent = Math.floor(start);
+        }, 16);
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                const sn = entry.target.querySelector('.stat-number[data-targ

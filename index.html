@@ -63,6 +63,7 @@
             font-weight: 700; font-size: 1.25rem; cursor: pointer;
         }
         .logo svg { width: 32px; height: 32px; }
+        .logo-svg { fill: var(--color-primary); }
         .nav-links { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
         .nav-links a {
             text-decoration: none; color: var(--color-text);
@@ -92,7 +93,19 @@
         .btn-outline { background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
         .btn-outline:hover { background: var(--color-primary); color: white; }
 
-        /* ─── IMAGE PLACEHOLDER ─── */
+        /* ─── IMAGE STYLING ─── */
+        .section-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            transition: var(--transition);
+        }
+        .section-image:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card-hover);
+        }
         .img-placeholder {
             background: linear-gradient(135deg, #FFF8F8 0%, #FFF0F0 100%);
             border-radius: var(--radius-card);
@@ -147,12 +160,11 @@
         .carrier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
         .carrier-header { padding: 1.5rem; text-align: center; border-bottom: 1px solid var(--color-border); }
         .carrier-logo { width: 140px; height: 64px; margin: 0 auto 1rem; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-border); overflow: hidden; }
-        /* IMAGE PLACEHOLDER for carrier logos */
-        .carrier-logo .logo-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--color-text-light); background: var(--color-bg-soft); }
+        .carrier-logo img { width: 100%; height: 100%; object-fit: contain; padding: 8px; }
         .carrier-body { padding: 1.5rem; flex: 1; }
         .carrier-highlights { list-style: none; margin: 1rem 0; }
         .carrier-highlights li { padding: 0.3rem 0; color: var(--color-text); font-size: 0.95rem; }
-        .carrier-highights li::before { content: "✓ "; color: var(--color-success); font-weight: bold; }
+        .carrier-highlights li::before { content: "✓ "; color: var(--color-success); font-weight: bold; }
         .carrier-footer { padding: 1.5rem; border-top: 1px solid var(--color-border); display: flex; gap: 1rem; justify-content: center; }
 
         /* ─── COMPARISON TABLE ─── */
@@ -349,7 +361,7 @@
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a class="logo" onclick="showPage('home')">
-            <svg viewBox="0 0 24 24" fill="#FF6B4A">
+            <svg viewBox="0 0 24 24" class="logo-svg">
                 <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M7,7C8.1,7 9,7.9 9,9C9,10.1 8.1,11 7,11C5.9,11 5,10.1 5,9C5,7.9 5.9,7 7,7M17,7C18.1,7 19,7.9 19,9C19,10.1 18.1,11 17,11C15.9,11 15,10.1 15,9C15,7.9 15.9,7 17,7M12,8C13.1,8 14,8.9 14,10C14,11.1 13.1,12 12,12C10.9,12 10,11.1 10,10C10,8.9 10.9,8 12,8M4,13C5.1,13 6,13.9 6,15C6,16.1 5.1,17 4,17C2.9,17 2,16.1 2,15C2,13.9 2.9,13 4,13M20,13C21.1,13 22,13.9 22,15C22,16.1 21.1,17 20,17C18.9,17 18,16.1 18,15C18,13.9 18.9,13 20,13M8,18C9.1,18 10,18.9 10,20C10,21.1 9.1,22 8,22C6.9,22 6,21.1 6,20C6,18.9 6.9,18 8,18M16,18C17.1,18 18,18.9 18,20C18,21.1 17.1,22 16,22C14.9,22 14,21.1 14,20C14,18.9 14.9,18 16,18Z"/>
             </svg>
             iPet Insurance Services
@@ -392,13 +404,11 @@
                     </div>
                 </div>
                 <div>
-                    <!-- IMAGE PLACEHOLDER: Happy dog and cat together — replace src with your image path -->
-                    <!-- Example: <img src="hero-pets.jpg" alt="Happy dog and cat" style="width:100%;height:400px;object-fit:cover;border-radius:var(--radius-card);"> -->
-                    <div class="img-placeholder" style="height:400px;">
-                        <div class="ph-emoji">🐶🐱</div>
-                        <div class="ph-title">Hero Photo</div>
-                        <div class="ph-size">Replace with your image<br>Recommended: 600×400px</div>
-                    </div>
+                    <!-- HERO IMAGE: Happy dog and cat together -->
+                    <img src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=100" 
+                         alt="Happy dog and cat together" 
+                         class="section-image" 
+                         style="height:400px;">
                 </div>
             </div>
         </div>
@@ -443,13 +453,11 @@
                     </div>
                 </div>
                 <div>
-                    <!-- IMAGE PLACEHOLDER: Vet examining golden retriever — replace src with your image path -->
-                    <!-- Example: <img src="vet-dog.jpg" alt="Vet with dog" style="width:100%;height:300px;object-fit:cover;border-radius:var(--radius-card);"> -->
-                    <div class="img-placeholder" style="height:300px;">
-                        <div class="ph-emoji">👨‍⚕️🐕</div>
-                        <div class="ph-title">Vet &amp; Dog Photo</div>
-                        <div class="ph-size">Replace with your image<br>Recommended: 600×400px</div>
-                    </div>
+                    <!-- IMAGE: Vet examining golden retriever -->
+                    <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=100" 
+                         alt="Vet with dog" 
+                         class="section-image" 
+                         style="height:300px;">
                 </div>
             </div>
         </div>
@@ -513,13 +521,11 @@
                 <a onclick="showPage('coverage')" class="btn btn-primary" style="cursor:pointer;">See Full Detailed Coverage →</a>
             </div>
             <div style="margin-top:2.5rem;">
-                <!-- IMAGE PLACEHOLDER: Vet examining cat — replace src with your image path -->
-                <!-- Example: <img src="vet-cat.jpg" alt="Vet with cat" style="width:100%;max-width:500px;height:280px;object-fit:cover;border-radius:var(--radius-card);display:block;margin:0 auto;"> -->
-                <div class="img-placeholder" style="max-width:500px;height:240px;margin:0 auto;">
-                    <div class="ph-emoji">🐱👐</div>
-                    <div class="ph-title">Vet &amp; Cat Photo</div>
-                    <div class="ph-size">Replace with your image<br>Recommended: 500×350px</div>
-                </div>
+                <!-- IMAGE: Vet examining cat -->
+                <img src="https://images.unsplash.com/photo-1573865526739-10c1dc02f8cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=100" 
+                     alt="Vet with cat" 
+                     class="section-image" 
+                     style="max-width:500px;height:240px;display:block;margin:0 auto;">
             </div>
         </div>
     </section>
@@ -533,11 +539,9 @@
 
                 <!-- Lemonade -->
                 <div class="carrier-card animate-on-scroll">
-                    <div class="carrier-header" style="background:linear-gradient(135deg,#FF9A8B,#FF6B4A);">
+                    <div class="carrier-header" style="background:linear-gradient(135deg,#FF8A8F,#FF5A5F);">
                         <div class="carrier-logo">
-                            <!-- IMAGE PLACEHOLDER: Replace with Lemonade logo -->
-                            <!-- <img src="lemonade-logo.png" alt="Lemonade" style="width:100%;height:100%;object-fit:contain;padding:8px;"> -->
-                            <div class="logo-placeholder">📸 Lemonade Logo</div>
+                            <img src="https://cdn.lemonade.com/static/lemonade-logo.svg" alt="Lemonade" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'logo-placeholder\'>📸 Lemonade Logo</div>'">
                         </div>
                         <h3 style="color:white;">Lemonade Pet Insurance</h3>
                     </div>
@@ -559,9 +563,7 @@
                 <div class="carrier-card animate-on-scroll">
                     <div class="carrier-header" style="background:linear-gradient(135deg,#00B4DB,#0083B0);">
                         <div class="carrier-logo">
-                            <!-- IMAGE PLACEHOLDER: Replace with ASPCA logo -->
-                            <!-- <img src="aspca-logo.png" alt="ASPCA" style="width:100%;height:100%;object-fit:contain;padding:8px;"> -->
-                            <div class="logo-placeholder">📸 ASPCA Logo</div>
+                            <img src="https://www.aspcapetinsurance.com/static/aspca-logo.svg" alt="ASPCA" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'logo-placeholder\'>📸 ASPCA Logo</div>'">
                         </div>
                         <h3 style="color:white;">ASPCA Pet Insurance</h3>
                     </div>
@@ -581,11 +583,9 @@
 
                 <!-- Spot -->
                 <div class="carrier-card animate-on-scroll">
-                    <div class="carrier-header" style="background:linear-gradient(135deg,#FF6B4A,#FF8E53);">
+                    <div class="carrier-header" style="background:linear-gradient(135deg,#FF8E53,#FF7E53);">
                         <div class="carrier-logo">
-                            <!-- IMAGE PLACEHOLDER: Replace with Spot logo -->
-                            <!-- <img src="spot-logo.png" alt="Spot" style="width:100%;height:100%;object-fit:contain;padding:8px;"> -->
-                            <div class="logo-placeholder">📸 Spot Logo</div>
+                            <img src="https://spotpet.com/static/spot-logo.svg" alt="Spot" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=\'logo-placeholder\'>📸 Spot Logo</div>'">
                         </div>
                         <h3 style="color:white;">Spot Pet Insurance</h3>
                     </div>
@@ -662,13 +662,11 @@
                     </div>
                 </div>
                 <div>
-                    <!-- IMAGE PLACEHOLDER: Happy pet owner with dog — replace src with your image path -->
-                    <!-- Example: <img src="pet-owner.jpg" alt="Pet owner with dog" style="width:100%;height:400px;object-fit:cover;border-radius:var(--radius-card);"> -->
-                    <div class="img-placeholder" style="height:380px;">
-                        <div class="ph-emoji">👩‍💼🐕</div>
-                        <div class="ph-title">Pet Owner Photo</div>
-                        <div class="ph-size">Replace with your image<br>Recommended: 500×400px</div>
-                    </div>
+                    <!-- IMAGE: Happy pet owner with dog -->
+                    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=100" 
+                         alt="Pet owner with dog" 
+                         class="section-image" 
+                         style="height:380px;">
                 </div>
             </div>
         </div>
@@ -730,13 +728,11 @@
                     </div>
                 </div>
                 <div>
-                    <!-- IMAGE PLACEHOLDER: Team or agent photo — replace src with your image path -->
-                    <!-- Example: <img src="team-photo.jpg" alt="Our team" style="width:100%;height:420px;object-fit:cover;border-radius:var(--radius-card);"> -->
-                    <div class="img-placeholder" style="height:420px;">
-                        <div class="ph-emoji">👩‍💼🐾</div>
-                        <div class="ph-title">Team / Agent Photo</div>
-                        <div class="ph-size">Replace with your image<br>Recommended: 600×420px</div>
-                    </div>
+                    <!-- IMAGE: Team or agent photo -->
+                    <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=100" 
+                         alt="Our team" 
+                         class="section-image" 
+                         style="height:420px;">
                 </div>
             </div>
         </div>
@@ -781,7 +777,7 @@
             <div class="footer-content">
                 <div>
                     <a class="footer-logo" onclick="showPage('home')">
-                        <svg viewBox="0 0 24 24" fill="#FF6B4A" style="width:32px;height:32px;flex-shrink:0;">
+                        <svg viewBox="0 0 24 24" class="logo-svg" style="width:32px;height:32px;flex-shrink:0;">
                             <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M7,7C8.1,7 9,7.9 9,9C9,10.1 8.1,11 7,11C5.9,11 5,10.1 5,9C5,7.9 5.9,7 7,7M17,7C18.1,7 19,7.9 19,9C19,10.1 18.1,11 17,11C15.9,11 15,10.1 15,9C15,7.9 15.9,7 17,7M12,8C13.1,8 14,8.9 14,10C14,11.1 13.1,12 12,12C10.9,12 10,11.1 10,10C10,8.9 10.9,8 12,8M4,13C5.1,13 6,13.9 6,15C6,16.1 5.1,17 4,17C2.9,17 2,16.1 2,15C2,13.9 2.9,13 4,13M20,13C21.1,13 22,13.9 22,15C22,16.1 21.1,17 20,17C18.9,17 18,16.1 18,15C18,13.9 18.9,13 20,13M8,18C9.1,18 10,18.9 10,20C10,21.1 9.1,22 8,22C6.9,22 6,21.1 6,20C6,18.9 6.9,18 8,18M16,18C17.1,18 18,18.9 18,20C18,21.1 17.1,22 16,22C14.9,22 14,21.1 14,20C14,18.9 14.9,18 16,18Z"/>
                         </svg>
                         iPet Insurance Services
@@ -1030,7 +1026,7 @@
 
             <div class="qp-header">
                 <div class="qp-brand">
-                    <svg viewBox="0 0 24 24" fill="#FF6B4A" width="36" height="36">
+                    <svg viewBox="0 0 24 24" class="logo-svg" width="36" height="36">
                         <path d="M12,2C13.1,2 14,2.9 14,4C14,5.1 13.1,6 12,6C10.9,6 10,5.1 10,4C10,2.9 10.9,2 12,2M7,7C8.1,7 9,7.9 9,9C9,10.1 8.1,11 7,11C5.9,11 5,10.1 5,9C5,7.9 5.9,7 7,7M17,7C18.1,7 19,7.9 19,9C19,10.1 18.1,11 17,11C15.9,11 15,10.1 15,9C15,7.9 15.9,7 17,7M12,8C13.1,8 14,8.9 14,10C14,11.1 13.1,12 12,12C10.9,12 10,11.1 10,10C10,8.9 10.9,8 12,8M4,13C5.1,13 6,13.9 6,15C6,16.1 5.1,17 4,17C2.9,17 2,16.1 2,15C2,13.9 2.9,13 4,13M20,13C21.1,13 22,13.9 22,15C22,16.1 21.1,17 20,17C18.9,17 18,16.1 18,15C18,13.9 18.9,13 20,13M8,18C9.1,18 10,18.9 10,20C10,21.1 9.1,22 8,22C6.9,22 6,21.1 6,20C6,18.9 6.9,18 8,18M16,18C17.1,18 18,18.9 18,20C18,21.1 17.1,22 16,22C14.9,22 14,21.1 14,20C14,18.9 14.9,18 16,18Z"/>
                     </svg>
                     <span>iPet Insurance Services</span>
